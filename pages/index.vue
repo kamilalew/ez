@@ -1,34 +1,22 @@
 <template>
-  <div class="container">
-    <div>
-      <Logo />
-      <h1 class="title">
+<div>
+  <Header />
+  <div class="container">   
+      <h4 class="title">
         ezekia
-      </h1>
-      <div class="links">
-        <a
-          href="https://nuxtjs.org/"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="button--green"
-        >
-          Documentation
-        </a>
-        <a
-          href="https://github.com/nuxt/nuxt.js"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="button--grey"
-        >
-          GitHub
-        </a>
-      </div>
-    </div>
+      </h4>
+  </div>
   </div>
 </template>
 
 <script>
-export default {}
+import Header from "@/components/Header";
+export default {
+  components: {
+    Header,
+  },
+}
+
 </script>
 
 <style>
