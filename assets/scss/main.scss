@@ -1,0 +1,189 @@
+//MIXINS
+$breakpoints: (
+  "small": 767px,
+  "medium": 992px,
+  "large": 1200px
+) !default;
+
+@mixin respond-to($breakpoint) {
+  @if map-has-key($breakpoints, $breakpoint) {
+    @media (min-width: map-get($breakpoints, $breakpoint)) {
+      @content;
+    }
+  } @else {
+    @warn "Unfortunately, no value could be retrieved from `#{$breakpoint}`. "
+          + "Available breakpoints are: #{map-keys($breakpoints)}.";
+  }
+}
+
+//INDEX
+
+.container {
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.title {
+  font-family: "Quicksand", "Source Sans Pro", -apple-system, BlinkMacSystemFont,
+    "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  display: block;
+  font-weight: 300;
+  font-size: 100px;
+  color: #35495e;
+  letter-spacing: 1px;
+}
+
+.subtitle {
+  font-weight: 300;
+  font-size: 42px;
+  color: #526488;
+  word-spacing: 5px;
+  padding-bottom: 15px;
+}
+
+.links {
+  padding-top: 15px;
+}
+
+//HEADER
+
+.header {
+  height: 70px;
+  width: 100%;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgb(236, 236, 236);
+
+  &__left {
+    display: flex;
+    align-items: center;
+  }
+
+  &__title {
+    font-size: 2em;
+  }
+
+  &__logo__world,
+  &__logo__menu {
+    height: auto;
+    width: auto;
+    max-width: 3em;
+    max-height: 2em;
+    margin: 3em;
+  }
+}
+
+//COMMON CLASSES
+
+.home {
+  margin: 3em;
+}
+
+//INDIVIDUAL PAGES
+
+.individual-page {
+  &__title {
+    font-size: 3em;
+    margin: 1em;
+    color: #2c3791;
+  }
+
+  &__cards {
+    width: 100%;
+    @include respond-to("medium") {
+      display: flex;
+      flex-wrap: wrap;
+      flex-direction: row;
+    }
+  }
+
+  &__card {
+    width: 280px;
+    padding: 0.5em 1em;
+    margin: 0 2em;
+  }
+
+  &__images__container {
+    position: relative;
+  }
+
+  &__image {
+    display: block;
+    height: 150px;
+    width: 100%;
+    position: relative;
+  }
+
+  &__logo {
+    height: 50px;
+    width: 50px;
+    position: absolute;
+    top: -20px;
+    right: -20px;
+  }
+  &__name {
+    font-size: 2em;
+    margin: 0.5em 0;
+  }
+
+  &__news {
+    margin-top: 1em;
+  }
+
+  &__news--title,
+  &--quiz {
+    color: #2c3791;
+    font-weight: 600;
+  }
+
+  &__card__partners {
+    border: 1px solid rgba(184, 2, 2, 0.795);
+  }
+}
+
+//MUSEUM LISTINGS
+
+.museum-listings {
+  &__description {
+    margin: 2em 3em;
+  }
+
+  &__title {
+    margin-bottom: 0.5em;
+  }
+
+  &__paragraph {
+    font-size: 1.2em;
+  }
+
+  &__pages {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    width: 100%;
+    margin-top: 50px;
+  }
+
+  &__page {
+    width: 280px;
+    padding: 0.5em 1em;
+    margin: 0 2em;
+  }
+
+  &__image {
+    display: block;
+    height: 150px;
+    width: 100%;
+  }
+
+  &__name {
+    margin-top: 20px;
+    font-size: 1.5em;
+    text-align: center;
+  }
+}
