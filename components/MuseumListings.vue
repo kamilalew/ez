@@ -27,13 +27,9 @@
 </template>
 
 <script>
-// import MuseumHighlight from './MuseumHighlight';
-
 import Header from "@/components/Header";
 export default {
-  // name: 'MuseumListings',
   components: {
-    // MuseumHighlight,
     Header
   },
   mixins: [],
